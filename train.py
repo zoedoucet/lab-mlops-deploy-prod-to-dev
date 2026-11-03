@@ -8,7 +8,7 @@ from importlib.metadata import version
 import joblib
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import cross_val_score, train_test_split
 from sklearn.pipeline import Pipeline
@@ -30,7 +30,7 @@ def make_pipeline():
                "CustServ Calls"]
     preprocessing = ColumnTransformer([("categorical", OneHotEncoder(drop="if_binary"), CATEGORICAL),
                                        ("numeric", StandardScaler(), numeric)])
-    return Pipeline([("preprocessing", preprocessing), ("model", LogisticRegression(max_iter=1000))])
+    return Pipeline([("preprocessing", preprocessing), ("model", RandomForestClassifier(n_estimators=200, random_state=42))])
 
 
 if __name__ == "__main__":
