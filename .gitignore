@@ -1,0 +1,16 @@
+
+# Virtual environment
+.venv/
+
+# Trained ML models
+models/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
